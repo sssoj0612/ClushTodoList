@@ -5,19 +5,17 @@
 <mapper namespace="clush.back.persistance.mapper.ITodoMapper">
 
     <!--투두리스트-->
-    <select id="getTodoList" parameterType="TodoDTO" resultType="TodoDTO">
+    <select id="getTodoList" resultType="TodoDTO">
         SELECT *
         FROM TODOLIST
-        WHERE REG_DT = #{reg_dt}
         ORDER BY TODO_SEQ DESC
     </select>
 
     <!--등록-->
     <insert id="insertTodo" parameterType="TodoDTO">
         INSERT INTO TODOLIST
-        (TODO_SEQ, REG_DT, CHG_DT, CONTENTS)
-        VALUES ((TODO_SEQ, 0) + 1 FROM TODOLIST),
-        SYSDATE(), SYSDATE(), #{contents}
+        (REG_DT, CHG_DT, CONTENTS)
+        VALUES (SYSDATE(), SYSDATE(), #{contents})
     </insert>
 
     <!--수정-->
