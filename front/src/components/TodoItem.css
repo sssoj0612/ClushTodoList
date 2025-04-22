@@ -14,19 +14,17 @@
     flex: 1;
 }
 
-.TodoItem .date {
-    font-size: 14px;
-}
-
 .TodoItem button {
     cursor: pointer;
-    color: gray;
-    font-size: 14px;
+    width: 50px;
+    border-radius: 0.4rem;
+    font-size: 15px;
+    color: rgb(107, 107, 107);
     border: none;
-    border-radius: 5px;
-    padding: 7px;
+    background-color: #e2e2e2;
+    padding: 3px;
 }
 
 .TodoItem button:active {
-    background-color: rgb(199, 199, 199);
+    background-color: #cacaca;
 }
