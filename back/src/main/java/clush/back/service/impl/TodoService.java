@@ -17,9 +17,9 @@ public class TodoService implements ITodoService {
     private final ITodoMapper todoMapper;
 
     @Override
-    public List<TodoDTO> getTodoList() throws Exception {
+    public List<TodoDTO> getTodoList(TodoDTO pDTO) throws Exception {
         log.info(this.getClass().getName() + ".getTodoList Start!");
-        return todoMapper.getTodoList();
+        return todoMapper.getTodoList(pDTO);
     }
 
     @Override

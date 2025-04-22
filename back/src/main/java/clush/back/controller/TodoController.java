@@ -19,26 +19,29 @@ public class TodoController {
 
     // 전체 리스트 조회
     @GetMapping("/list")
-    public List<TodoDTO> getTodoList() throws Exception {
+    public List<TodoDTO> getTodoList(@RequestParam(value = "search", required = false) String search) throws Exception {
         log.info(this.getClass().getName() + ".getTodoList Start!");
-        return todoService.getTodoList();
+        log.info("검색어 : " + search);
+        TodoDTO pDTO = new TodoDTO();
+        pDTO.setSearch(search); // 검색어 세팅
+        return todoService.getTodoList(pDTO);
     }
 
-    // 새 투두 등록
+    // 등록
     @PostMapping("/insert")
     public void insertTodo(@RequestBody TodoDTO pDTO) throws Exception {
         log.info(this.getClass().getName() + ".insertTodo Start!");
         todoService.insertTodo(pDTO);
     }
 
-    // 투두 수정
+    // 수정
     @PutMapping("/update")
     public void updateTodo(@RequestBody TodoDTO pDTO) throws Exception {
         log.info(this.getClass().getName() + ".updateTodo Start!");
         todoService.updateTodo(pDTO);
     }
 
-    // 투두 삭제
+    // 삭제
     @DeleteMapping("/delete/{todoSeq}")
     public void deleteTodo(@PathVariable("todoSeq") long todoSeq) throws Exception {
         log.info(this.getClass().getName() + ".deleteTodo Start!");

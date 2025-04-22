@@ -5,9 +5,14 @@
 <mapper namespace="clush.back.persistance.mapper.ITodoMapper">
 
     <!--투두리스트-->
-    <select id="getTodoList" resultType="TodoDTO">
+    <select id="getTodoList" parameterType="TodoDTO" resultType="TodoDTO">
         SELECT *
         FROM TODOLIST
+        <where>
+            <if test="search != null and search != ''">
+                AND CONTENTS LIKE CONCAT('%', #{search}, '%')
+            </if>
+        </where>
         ORDER BY TODO_SEQ DESC
     </select>
 
@@ -24,13 +29,13 @@
         SET CHG_DT    = SYSDATE(),
             CONTENTS  = #{contents},
             STATUS    = #{status}
-        WHERE TODO_SEQ = #{todo_seq}
+        WHERE TODO_SEQ = #{todoSeq}
     </update>
 
 
     <!--삭제-->
     <delete id="deleteTodo" parameterType="TodoDTO">
         DELETE FROM TODOLIST
-        WHERE TODO_SEQ = #{todo_seq}
+        WHERE TODO_SEQ = #{todoSeq}
     </delete>
 </mapper>

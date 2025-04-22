@@ -2,60 +2,82 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
-//import List from "./components/List";
+import List from "./components/List";
 import TodoItem from "./components/TodoItem";
 import axios from "axios";
+
+const API = "http://localhost:11000/api/todo";
 
 function App() {
   const [todos, setTodos] = useState([]);
   
-  // 1. 처음 마운트될 때 전체 리스트트 불러오기
+  // 처음 마운트될 때 전체 리스트 불러오기
   useEffect(() => {
     fetchTodos();
   }, []);
 
   const fetchTodos = async () => {
-    const res = await axios.get("http://localhost:11000/api/todo/list");
-    setTodos(res.data);
+    try {
+      const res = await axios.get(`${API}/list`);
+      setTodos(res.data);
+    } catch (err) {
+      console.error("불러오기 실패!!", err);
+    }
   };
 
-  // 2. 등록
+  // ✅ 등록
   const onCreate = async (contents) => {
-    await axios.post("http://localhost:11000/api/todo/insert", {
-      contents,
-    });
-    fetchTodos(); // 갱신!!!
+    try {
+      await axios.post(`${API}/insert`, {
+        contents: contents,
+      });
+      fetchTodos(); // 다시 목록 갱신
+    } catch (err) {
+      console.error("등록 실패!!", err);
+    }
   };
 
-  // 3. 삭제
+  // ✅ 삭제
   const onDelete = async (todoSeq) => {
-    await axios.delete(`http://localhost:11000/api/todo/delete/${todoSeq}`);
-    fetchTodos();
+    try {
+      await axios.delete(`${API}/delete/${todoSeq}`);
+      fetchTodos();
+    } catch (err) {
+      console.error("삭제 실패!!", err);
+    }
   };
 
-  // 4. 상태 변경
+  // ✅ 체크박스 상태 변경
   const onToggle = async (todo) => {
-    await axios.put("http://localhost:11000/api/todo/update", {
-      ...todo,
-      status: !todo.status,
-    });
-    fetchTodos();
+    try {
+      await axios.put(`${API}/update`, {
+        todoSeq: todo.todoSeq,
+        contents: todo.contents,
+        status: !todo.status,
+      });
+      fetchTodos();
+    } catch (err) {
+      console.error("체크박스 수정 실패!!", err);
+    }
   };
+
+  // ✅ 검색
+  const onSearch = async (keyword) => {
+  try {
+    const res = await axios.get(`${API}/list`, {
+      params: { search: keyword },
+    });
+    setTodos(res.data);
+  } catch (err) {
+    console.error("검색 실패!!", err);
+  }
+};
 
   return (
     <div className="App">
       <Header />
       <Editor onCreate={onCreate} />
-      <div className="TodoList">
-        {todos.map((todo) => (
-          <TodoItem
-            key={todo.todoSeq}
-            todo={todo}
-            onDelete={onDelete}
-            onToggle={onToggle}
-          />
-        ))}
-      </div>
+      <List todos={todos} onDelete={onDelete} onToggle={onToggle} onSearch={onSearch} />
     </div>
   );
 }

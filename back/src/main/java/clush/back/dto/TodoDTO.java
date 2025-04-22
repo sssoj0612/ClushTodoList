@@ -15,6 +15,7 @@ public class TodoDTO {
     private String  regDt;      // 등록일
     private String  chgDt;      // 수정일
     private String  contents;   // 내용
-    private Boolean status;     // 상태
+    private Boolean status;     // 상태 (0: 미체크 / 1: 체크)
+    private String  search;     // 검색어
 
 }
