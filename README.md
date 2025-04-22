@@ -3,7 +3,7 @@
 1. 프로젝트 설명 : 스프링부트 + 리액트 기반의 투두리스트 웹으로로
 사용자는 할 일 추가, 수정, 삭제, 검색이 가능합니다.
 
-✅ 백엔드 : Java11 + Spring Boot(2.2.2) + MyBatis
+✅ 백엔드 : Java11 + Spring Boot(2.7.18)
 back/
 ├── src/
 │   ├── main/
@@ -30,7 +30,7 @@ back/
 └── pom.xml                                       # Maven 설정
 
 
-✅ 프론트 : React(Node 22.11.0) + JS
+✅ 프론트 : React(Node 22.11.0) + Vite
 front/
 ├── src/
 │   ├── components/
