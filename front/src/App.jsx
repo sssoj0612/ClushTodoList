@@ -61,6 +61,20 @@ function App() {
     }
   };
 
+  // ✅ 수정
+  const onUpdate = async (todo) => {
+    try {
+      await axios.put(`${API}/update`, {
+        todoSeq: todo.todoSeq,
+        contents: todo.contents,
+        status: todo.status,
+      });
+      fetchTodos();
+    } catch (err) {
+      console.error("수정 실패!!", err);
+    }
+  };
+
   // ✅ 검색
   const onSearch = async (keyword) => {
   try {
@@ -77,7 +91,7 @@ function App() {
     <div className="App">
       <Header />
       <Editor onCreate={onCreate} />
-      <List todos={todos} onDelete={onDelete} onToggle={onToggle} onSearch={onSearch} />
+      <List todos={todos} onDelete={onDelete} onToggle={onToggle} onSearch={onSearch} onUpdate={onUpdate}/>
     </div>
   );
 }

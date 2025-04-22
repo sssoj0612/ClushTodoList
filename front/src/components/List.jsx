@@ -2,7 +2,7 @@ import "./List.css";
 import TodoItem from "./TodoItem";
 import { useState } from "react";
 
-const List = ({ todos, onDelete, onToggle, onSearch }) => {
+const List = ({ todos, onDelete, onToggle, onSearch, onUpdate }) => {
 
   const [search, setSearch] = useState("");
 
@@ -24,6 +24,7 @@ const List = ({ todos, onDelete, onToggle, onSearch }) => {
             todo={todo}
             onDelete={onDelete}
             onToggle={onToggle}
+            onUpdate={onUpdate}
           />
         ))}
       </div>
