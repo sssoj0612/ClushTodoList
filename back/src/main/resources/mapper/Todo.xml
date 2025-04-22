@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 자바와 연결할 Mapper 파일 설정-->
+<mapper namespace="clush.back.persistance.mapper.ITodoMapper">
+
+    <!--투두리스트-->
+    <select id="getTodoList" parameterType="TodoDTO" resultType="TodoDTO">
+        SELECT *
+        FROM TODOLIST
+        WHERE REG_DT = #{reg_dt}
+        ORDER BY TODO_SEQ DESC
+    </select>
+
+    <!--등록-->
+    <insert id="insertTodo" parameterType="TodoDTO">
+        INSERT INTO TODOLIST
+        (TODO_SEQ, REG_DT, CHG_DT, CONTENTS)
+        VALUES ((TODO_SEQ, 0) + 1 FROM TODOLIST),
+        SYSDATE(), SYSDATE(), #{contents}
+    </insert>
+
+    <!--수정-->
+    <update id="updateTodo" parameterType="TodoDTO">
+        UPDATE TODOLIST
+        SET CHG_DT    = SYSDATE(),
+            CONTENTS  = #{contents},
+            STATUS    = #{status}
+        WHERE TODO_SEQ = #{todo_seq}
+    </update>
+
+
+    <!--삭제-->
+    <delete id="deleteTodo" parameterType="TodoDTO">
+        DELETE FROM TODOLIST
+        WHERE TODO_SEQ = #{todo_seq}
+    </delete>
+</mapper>
