@@ -59,15 +59,21 @@ front/
 
 
 2. 소스 빌드 및 실행
-
 🚀 백엔드 : 터미널 -> cd back -> mvn clean install -> java -jar target/back-0.0.1-SNAPSHOT.jar
 🚀 프론트 : 터미널 -> cd front -> npm install -> npm run dev -> 인터넷 http://localhost:5173/
 
 
 3. 주력으로 사용한 라이브러리
+✅ 백엔드
+- MyBatis : 복잡한 SQL 제어가 쉬움, 직관적인 쿼리 관리
+- Lombok : 어노테이션 기반 코드 축소 도구 + DTO, 서비스에서 Getter/Setter 자동 생성으로 생산성 향상
 
+✅ 프론트
+- Vite : 프론트엔드 빌드 도구
+- Axios : HTTP 통신 라이브러리. 백엔드와 REST API 간 통신을 간편하게 처리
 
 4. Api 명세 작성
+스웨거 : http://localhost:11000/swagger-ui/index.html
 
 
 5. 테스트 케이스
