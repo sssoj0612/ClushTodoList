@@ -1,8 +1,6 @@
 # clushTodoList
 
-<h1>clushTodoList</h1>
-
-<img src="image.png" alt="clushTodoList UI" width="600"/>
+<img src="image.png" alt="clushTodoList UI" width="400"/>
 
 
 
