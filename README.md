@@ -97,14 +97,14 @@ cd clushTodoList
 
 ### 🚀 백엔드
 ```bash
-cd back
+cd clushTodoList/back
 mvn clean install
 java -jar target/back-0.0.1-SNAPSHOT.jar
 ```
 
 ### 🚀 프론트
 ```bash
-cd front
+cd clushTodoList/front
 npm install
 npm run dev
 ```
