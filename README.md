@@ -1,7 +1,7 @@
 # clushTodoList
 
 ## 1. 프로젝트 설명
-Spring Boot + React 기반의 투두리스트(할 일 관리) 웹 프로젝트입니다.
+Spring Boot + React 기반의 투두리스트(할 일 관리) 웹입니다.
 사용자는 할 일을 등록, 수정, 삭제, 검색 할 수 있습니다.
 
 ---
@@ -35,7 +35,7 @@ back/
 
 ---
 
-## ✅ 프론트 (React + Vite)
+## ✅ 프론트 (React.JS + Vite)
 ```
 front/
 ├── src/
@@ -54,7 +54,7 @@ front/
 
 ---
 
-## ✅ 데이터베이스 (MySQL 로컬컬)
+## ✅ 데이터베이스 (MySQL 로컬)
 ```
 ┌────────────────────────────────────────┐
 │               TODOLIST                 │
@@ -95,9 +95,9 @@ npm run dev
 - **Lombok** : 어노테이션 기반 코드 축소 도구 + DTO, 서비스에서 Getter/Setter 자동 생성으로 생산성 향상
 
 ### ✔️ 프론트
-- **Vite** : 고속 시작 & 바로로 변경 확인 가능
+- **Vite** : 고속 시작 & 바로 변경 확인 가능
 - **Axios** : REST API 과의 HTTP 통신을 간편하게 처리
-- **react-datepicker** : 날짜 선택을 위한 다일 포팅 UI 패턴
+- **react-datepicker** : 캘린더 사용
 - **dayjs** : 날짜 형식(같은 YYYY-MM-DD) 변환을 위한 라이브러리
 
 ---
@@ -108,7 +108,7 @@ npm run dev
 
 ---
 
-## 5. 테스트케이스스
+## 5. 테스트케이스
 
 ### ✅ JUnit 5 기반의 자바 프로젝트 테스트 목록
 
