@@ -32,7 +32,7 @@ const List = ({ todos, onDelete, onToggle, onSearch, onUpdate }) => {
   // UI
   return (
     <div className="List">
-      <h3>Todo List 🌱
+      <h3> 진행 상황 🌱
         <Tag color="green" style={{ marginLeft: 8 }}>✔️ 완료 {statistics.complete}</Tag>
         <Tag color="red">❗ 미완료 {statistics.incomplete}</Tag>
       </h3>
