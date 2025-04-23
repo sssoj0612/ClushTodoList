@@ -6,9 +6,11 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -47,6 +49,17 @@ public class TodoController {
         pDTO.setRegDt(date); // 날짜 세팅
 
         return todoService.getTodoListByDate(pDTO);
+    }
+
+    @GetMapping("/statistics")
+    public ResponseEntity<Map<String, Object>> todoStatistics() {
+        try {
+            log.info(this.getClass().getName() + ".todoStatistics Start!");
+            return ResponseEntity.ok(todoService.todoStatistics());
+        } catch (Exception e) {
+            log.error("todoStatistics 에러!!", e);
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     // 등록

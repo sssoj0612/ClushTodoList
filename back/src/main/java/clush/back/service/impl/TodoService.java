@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -26,6 +27,12 @@ public class TodoService implements ITodoService {
     public List<TodoDTO> getTodoListByDate(TodoDTO pDTO) throws Exception {
         log.info(this.getClass().getName() + ".getTodoListByDate Start!");
         return todoMapper.getTodoListByDate(pDTO);
+    }
+
+    @Override
+    public Map<String, Object> todoStatistics() throws Exception {
+        log.info(this.getClass().getName() + ".todoStatistics Start!");
+        return todoMapper.todoStatistics();
     }
 
     @Override

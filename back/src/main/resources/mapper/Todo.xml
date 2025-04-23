@@ -31,6 +31,14 @@
         ORDER BY TODO_SEQ DESC
     </select>
 
+    <!-- 완료/미완료 할일 조회 -->
+    <select id="todoStatistics" resultType="map">
+        SELECT
+            SUM(CASE WHEN STATUS = 0 THEN 1 ELSE 0 END) AS incomplete,
+            SUM(CASE WHEN STATUS = 1 THEN 1 ELSE 0 END) AS complete
+        FROM TODOLIST
+    </select>
+
     <!--등록-->
     <insert id="insertTodo" parameterType="TodoDTO">
         INSERT INTO TODOLIST
