@@ -7,7 +7,7 @@ Spring Boot + React 기반의 투두리스트(할 일 관리) 웹입니다.
 
 ---
 
-## ✅ 백엔드 (Java 17 + Spring Boot 3.0.3)
+## ✅ 백엔드 (Java 17 + Spring Boot 3.0.3 로컬 서버)
 ```
 back/
 ├── src/
@@ -55,7 +55,7 @@ front/
 
 ---
 
-## ✅ 데이터베이스 (MySQL 로컬)
+## ✅ 데이터베이스 (MySQL 8.0 로컬)
 ```
 ┌────────────────────────────────────────┐
 │               TODOLIST                 │
@@ -86,7 +86,7 @@ cd clushTodoList
 - 설명: 로컬 개발용 MySQL DB 초기 세팅 방법입니다.
 - 기초 데이터 파일 위치: `back/db/todo_todolist.sql`
 - 사용법:
-  1. MySQL Workbench 실행
+  1. MySQL Workbench 8.0 실행
   2. Server → Data Import
   3. 파일 선택 후 Start Import 클릭
 
