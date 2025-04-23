@@ -51,7 +51,7 @@ public class TodoController {
         return todoService.getTodoListByDate(pDTO);
     }
 
-    @Operation(summary = "할 일 통계", description = "완료 / 미완료 할 일의 갯수를 조회합니다.")
+    @Operation(summary = "할 일 통계", description = "완료 / 미완료 할 일의 개수를 반환합니다.")
     @GetMapping("/statistics")
     public ResponseEntity<Map<String, Object>> todoStatistics() {
         try {
