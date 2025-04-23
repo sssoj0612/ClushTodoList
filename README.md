@@ -1,4 +1,5 @@
 # clushTodoList
+![alt text](image.png)
 
 ## 1. 프로젝트 설명
 Spring Boot + React 기반의 투두리스트(할 일 관리) 웹입니다.
