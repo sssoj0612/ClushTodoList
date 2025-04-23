@@ -1,7 +1,6 @@
 # clushTodoList
 
-<img src="image.png" alt="clushTodoList UI" width="400"/>
-
+<img src="image-1.png" alt="clushTodoList UI" width="400"/>
 
 
 ## 1. 프로젝트 설명
@@ -40,7 +39,7 @@ back/
 
 ---
 
-## ✅ 프론트 (React.JS + Vite)
+## ✅ 프론트 (React.JS, Node 22.11.0 + Vite)
 ```
 front/
 ├── src/
