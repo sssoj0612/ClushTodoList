@@ -8,7 +8,9 @@ import java.util.List;
 @Mapper
 public interface ITodoMapper {
 
-    List<TodoDTO> getTodoList(TodoDTO pDTO) throws Exception; // 해당 날짜의 투두 리스트
+    List<TodoDTO> getTodoList(TodoDTO pDTO) throws Exception; // 전체 투두 리스트
+
+    List<TodoDTO> getTodoListByDate(TodoDTO pDTO) throws Exception; // 해당 날짜 투두 리스트
 
     void insertTodo(TodoDTO pDTO) throws Exception; // 등록
 

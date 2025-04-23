@@ -71,6 +71,8 @@ front/
 ✅ 프론트
 - Vite : 프론트엔드 빌드 도구
 - Axios : HTTP 통신 라이브러리. 백엔드와 REST API 간 통신을 간편하게 처리
+- react-datepicker : 달력
+- dayjs : 날짜 포맷을 YYYY-MM-DD 형식으로 변환
 
 4. Api 명세 작성
 스웨거 : http://localhost:11000/swagger-ui/index.html

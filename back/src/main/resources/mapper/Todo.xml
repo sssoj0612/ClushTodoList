@@ -16,6 +16,20 @@
         ORDER BY TODO_SEQ DESC
     </select>
 
+    <select id="getTodoListByDate" parameterType="TodoDTO" resultType="TodoDTO">
+        SELECT *
+        FROM TODOLIST
+        <where>
+            <if test="regDt != null and regDt != ''">
+                AND DATE(REG_DT) = #{regDt}
+            </if>
+            <if test="search != null and search != ''">
+                AND CONTENTS LIKE CONCAT('%', #{search}, '%')
+            </if>
+        </where>
+        ORDER BY TODO_SEQ DESC
+    </select>
+
     <!--등록-->
     <insert id="insertTodo" parameterType="TodoDTO">
         INSERT INTO TODOLIST

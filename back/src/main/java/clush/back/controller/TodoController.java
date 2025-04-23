@@ -21,14 +21,32 @@ public class TodoController {
     private final ITodoService todoService;
 
     // 전체 리스트 조회
-    @Operation(summary = "할 일 조회", description = "전체 목록을 조회합니다.")
+    @Operation(summary = "전체 할 일 조회", description = "전체 할 일 목록을 조회합니다.")
     @GetMapping("/list")
     public List<TodoDTO> getTodoList(@RequestParam(value = "search", required = false) String search) throws Exception {
         log.info(this.getClass().getName() + ".getTodoList Start!");
         log.info("검색어 : " + search);
+
         TodoDTO pDTO = new TodoDTO();
         pDTO.setSearch(search); // 검색어 세팅
+
         return todoService.getTodoList(pDTO);
+    }
+
+    // 해당 날짜 리스트 조회
+    @Operation(summary = "선택한 날짜 할 일 조회", description = "선택한 날짜의 할 일 목록을 조회합니다.")
+    @GetMapping("/byDate")
+    public List<TodoDTO> getTodoListByDate(@RequestParam(value = "search", required = false) String search, @RequestParam String date) throws Exception {
+        log.info(this.getClass().getName() + ".getTodoListByDate Start!");
+
+        log.info("검색어 : ", search);
+        log.info("선택 날짜 : {}", date);
+
+        TodoDTO pDTO = new TodoDTO();
+        pDTO.setSearch(search); // 검색어 세팅
+        pDTO.setRegDt(date); // 날짜 세팅
+
+        return todoService.getTodoListByDate(pDTO);
     }
 
     // 등록
@@ -52,8 +70,10 @@ public class TodoController {
     @DeleteMapping("/delete/{todoSeq}")
     public void deleteTodo(@PathVariable("todoSeq") long todoSeq) throws Exception {
         log.info(this.getClass().getName() + ".deleteTodo Start!");
+
         TodoDTO pDTO = new TodoDTO();
         pDTO.setTodoSeq(todoSeq);
+
         todoService.deleteTodo(pDTO);
     }
 

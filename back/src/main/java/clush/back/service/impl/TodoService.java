@@ -23,6 +23,12 @@ public class TodoService implements ITodoService {
     }
 
     @Override
+    public List<TodoDTO> getTodoListByDate(TodoDTO pDTO) throws Exception {
+        log.info(this.getClass().getName() + ".getTodoListByDate Start!");
+        return todoMapper.getTodoListByDate(pDTO);
+    }
+
+    @Override
     public void insertTodo(TodoDTO pDTO) throws Exception {
         log.info(this.getClass().getName() + ".insertTodo Start!");
         todoMapper.insertTodo(pDTO);

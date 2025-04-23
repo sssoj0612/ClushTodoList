@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
 import List from "./components/List";
-import TodoItem from "./components/TodoItem";
 import axios from "axios";
 
 const API = "http://localhost:11000/api/todo";
@@ -89,7 +88,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header onSearchByDate={(dateStr) => {
+        axios.get(`${API}/byDate`, {
+          params: { date: dateStr }
+        }).then((res) => setTodos(res.data));
+      }}
+      onResetTodos={fetchTodos}
+      />
       <Editor onCreate={onCreate} />
       <List todos={todos} onDelete={onDelete} onToggle={onToggle} onSearch={onSearch} onUpdate={onUpdate}/>
     </div>
