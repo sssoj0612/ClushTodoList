@@ -70,7 +70,7 @@ front/
 
 ---
 
-## 2. 소스 빌드 & 시작 (로컬컬)
+## 2. 소스 빌드 & 시작 (로컬)
 
 
 ### 🔧 GitHub에서 프로젝트 클론
@@ -78,6 +78,7 @@ front/
 ```bash
 git clone https://github.com/sssoj0612/clushTodoList.git
 cd clushTodoList
+```
 
 ## 💾 DB
 - 설명: 로컬 개발용 MySQL DB 초기 세팅 파일입니다.
