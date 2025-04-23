@@ -4,7 +4,7 @@
 <!-- 자바와 연결할 Mapper 파일 설정-->
 <mapper namespace="clush.back.persistance.mapper.ITodoMapper">
 
-    <!--투두리스트-->
+    <!-- 전체 투두리스트-->
     <select id="getTodoList" parameterType="TodoDTO" resultType="TodoDTO">
         SELECT *
         FROM TODOLIST
@@ -16,6 +16,7 @@
         ORDER BY TODO_SEQ DESC
     </select>
 
+    <!-- 날짜로 조회 -->
     <select id="getTodoListByDate" parameterType="TodoDTO" resultType="TodoDTO">
         SELECT *
         FROM TODOLIST
