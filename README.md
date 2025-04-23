@@ -72,6 +72,15 @@ front/
 
 ## 2. 소스 빌드 & 시작
 
+## 💾 DB
+- 위치: `back/db/todo_todolist.sql`
+- 설명: 로컬 개발용 MySQL DB 초기 세팅 파일입니다.
+- 사용법:
+  1. MySQL Workbench 실행
+  2. Server → Data Import
+  3. 파일 선택 후 Start Import 클릭
+
+
 ### 🚀 백엔드
 ```bash
 cd back
