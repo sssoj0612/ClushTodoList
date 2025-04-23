@@ -111,11 +111,17 @@ npm run dev
 
 ## 5. 테스트케이스
 
-### ✅ JUnit 5 기반의 자바 프로젝트 테스트 목록
+### ✅ JUnit 5 기반의 자바 프로젝트 테스트
 
 #### 파일 위치
 ```
 src/test/java/clush/back/BackApplicationTests.java
+```
+
+#### 테스트 실행 방법법
+```bash
+cd back
+mvn test
 ```
 
 #### 테스트 역할
