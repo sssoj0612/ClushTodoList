@@ -1,9 +1,4 @@
-.Editor {
-    display: flex;
-    gap: 10px;
-}
-
-.Editor input {
+.inputInsert {
     flex: 1;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
@@ -14,17 +9,17 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.Editor input:focus {
-    border-color: #c4c4c4;
-
-    /* 그림자 색상 #CEFBC9 */
+.inputInsert:focus,
+.inputInsert.ant-input-focused {
+    border-color: #c4c4c4 !important;
     box-shadow: 0 0 0 0.2rem rgb(221, 240, 234);
-    outline: none;
+    outline: none !important;
 }
 
-.Editor button {
+.btnInsert {
     cursor: pointer;
     width: 70px;
+    height: 40px;
     border: none;
     background-color: #A7D7C9;
     border-radius: 0.4rem;
@@ -32,6 +27,13 @@
     font-size: larger;
 }
 
-.Editor button:active {
-    background-color: #8bb3a7;
+.btnInsert:hover {
+    background-color: #A7D7C9 !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.btnInsert:active {
+    background-color: #8bb3a7 !important;
 }

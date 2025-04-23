@@ -1,9 +1,11 @@
+import { Checkbox, Typography, Button, Input, Space } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 import { useState, useRef } from "react";
 import "./TodoItem.css";
 
 const TodoItem = ({ todo, onDelete, onToggle, onUpdate }) => {
 
-    const { todoSeq, contents, regDt, status } = todo;
+    const {todoSeq, contents, regDt, status} = todo;
     const [isEdit, setIsEdit] = useState(false);
     const [editValue, setEditValue] = useState(contents);
     const inputRef = useRef();
@@ -27,33 +29,52 @@ const TodoItem = ({ todo, onDelete, onToggle, onUpdate }) => {
         }
     };
 
+    // UI
     return (
-        <div className={`TodoItem ${status ? "done" : ""}`}>
-            <label className="checkbox-container">
-                <input type ="checkbox" checked = {status} onChange = {() => onToggle(todo)}/>
-                <span className = "checkmark"></span>
-            </label>
+    <Space className="todoItemWrapper">
+      {/* 체크박스 */}
+      <Checkbox
+        checked={status}
+        onChange={() => onToggle(todo)}
+        className="todoCheckbox"
+      />
 
-            {/* 수정 모드 */}
-            {isEdit ? (
-                <input
-                    ref = {inputRef}
-                    value = {editValue}
-                    onChange = {(e) => setEditValue(e.target.value)}
-                    onBlur = {handleBlur}
-                    onKeyDown = {handleKeyDown}
-                    className = "editInput"
-                />
-            ) : (
-                <div className ="contents" onClick = {handleDoubleClick}>
-                {contents}
-                </div>
-            )}
-
-            <div className ="date">{regDt}</div>
-            <button onClick = {() => onDelete(todoSeq)}>삭제</button>
+      {/* 내용+날짜 / 수정 */}
+      <div className="todoContentAndButton">
+        <div className="todoContentsWrapper">
+          {isEdit ? (
+            <Input
+              ref={inputRef}
+              value={editValue}
+              onChange={(e) => setEditValue(e.target.value)}
+              onBlur={handleBlur}
+              onKeyDown={handleKeyDown}
+            />
+          ) : (
+            <Typography.Text
+              onClick={handleDoubleClick}
+              delete={status}
+              className="todoText"
+            >
+              {contents}
+            </Typography.Text>
+          )}
+          <div className="todoDate">{regDt}</div>
         </div>
-    );
+
+        {/* 삭제 버튼 */}
+        <Button
+          type="text"
+          danger
+          icon={<DeleteOutlined />}
+          onClick={() => onDelete(todoSeq)}
+          className="todoDeleteButton"
+        >
+          삭제
+        </Button>
+      </div>
+    </Space>
+  );
 };
 
 export default TodoItem;

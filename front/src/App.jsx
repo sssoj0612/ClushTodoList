@@ -1,4 +1,4 @@
-import "./App.css";
+import { Card } from "antd";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
@@ -87,17 +87,32 @@ function App() {
 };
 
   return (
-    <div className="App">
-      <Header onSearchByDate={(dateStr) => {
-        axios.get(`${API}/byDate`, {
-          params: { date: dateStr }
-        }).then((res) => setTodos(res.data));
+    <Card
+      style={{
+        maxWidth: 600,
+        margin: "40px auto",
+        padding: "20px",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+        borderRadius: "10px",
       }}
-      onResetTodos={fetchTodos}
+    >
+      <Header
+        onSearchByDate={(dateStr) => {
+          axios
+            .get(`${API}/byDate`, { params: { date: dateStr } })
+            .then((res) => setTodos(res.data));
+        }}
+        onResetTodos={fetchTodos}
       />
       <Editor onCreate={onCreate} />
-      <List todos={todos} onDelete={onDelete} onToggle={onToggle} onSearch={onSearch} onUpdate={onUpdate}/>
-    </div>
+      <List
+        todos={todos}
+        onDelete={onDelete}
+        onToggle={onToggle}
+        onSearch={onSearch}
+        onUpdate={onUpdate}
+      />
+    </Card>
   );
 }
 

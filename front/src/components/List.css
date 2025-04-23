@@ -1,18 +1,17 @@
-List.css .List {
+.List {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.List>input {
+.searchInput {
     width: 100%;
     border: none;
     border-bottom: 3px solid rgb(220, 220, 220);
     padding: 15px 0px;
-    margin-bottom: 20px;
 }
 
-.List>input:focus {
+.searchInput:focus {
     outline: none;
     border-bottom: 3px solid #c6f0d7;
 }
