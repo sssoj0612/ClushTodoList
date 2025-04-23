@@ -7,7 +7,7 @@ Spring Boot + React 기반의 투두리스트(할 일 관리) 웹입니다.
 
 ---
 
-## ✅ 백엔드 (Java 11 + Spring Boot 2.7.18)
+## ✅ 백엔드 (Java 17 + Spring Boot 3.0.3)
 ```
 back/
 ├── src/
@@ -70,11 +70,18 @@ front/
 
 ---
 
-## 2. 소스 빌드 & 시작
+## 2. 소스 빌드 & 시작 (로컬컬)
+
+
+### 🔧 GitHub에서 프로젝트 클론
+
+```bash
+git clone https://github.com/sssoj0612/clushTodoList.git
+cd clushTodoList
 
 ## 💾 DB
-- 위치: `back/db/todo_todolist.sql`
 - 설명: 로컬 개발용 MySQL DB 초기 세팅 파일입니다.
+- 기초 데이터 파일일 위치: `back/db/todo_todolist.sql`
 - 사용법:
   1. MySQL Workbench 실행
   2. Server → Data Import
@@ -93,7 +100,7 @@ java -jar target/back-0.0.1-SNAPSHOT.jar
 cd front
 npm install
 npm run dev
-# http://localhost:5173/ 에서 열 수 있습니다.
+# http://localhost:5173/ 에서 확인.
 ```
 
 ---
