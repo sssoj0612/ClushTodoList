@@ -1,7 +1,7 @@
 import { Checkbox, Typography, Button, Input, Space } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import { useState, useRef } from "react";
-import "./TodoItem.css";
+import TodoItemStyle from "./Styled";
 
 const TodoItem = ({ todo, onDelete, onToggle, onUpdate }) => {
 
@@ -31,6 +31,7 @@ const TodoItem = ({ todo, onDelete, onToggle, onUpdate }) => {
 
     // UI
     return (
+    <TodoItemStyle>
     <Space className="todoItemWrapper">
       {/* 체크박스 */}
       <Checkbox
@@ -74,6 +75,7 @@ const TodoItem = ({ todo, onDelete, onToggle, onUpdate }) => {
         </Button>
       </div>
     </Space>
+    </TodoItemStyle>
   );
 };
 

@@ -1,11 +1,11 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Input, Button, Space } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import "./Editor.css";
+import EditorStyle from './Styled';
 
 // Editor 컴포넌트 정의 (할 일 추가 기능)
 const Editor = ({ onCreate }) => {
-
+  const [color , setColor] = useState(false)
   const [content, setContent] = useState(""); // 내용 입력하는 변수
   const inputRef = useRef(); // 입력창
 
@@ -21,6 +21,10 @@ const Editor = ({ onCreate }) => {
     }
   };
 
+  const handleClick = () => {
+    setColor(true);
+  }
+
   // 등록
   const handleSubmit = () => {
     if (content.trim() === "") { // 아무것도 입력 안 했으면
@@ -34,7 +38,7 @@ const Editor = ({ onCreate }) => {
   // UI
   return (
 
-    <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
+    <EditorStyle color={color} style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
       <Input
         className="inputInsert"
         ref = {inputRef} // 입력창 DOM에 접근할 수 있게 연결
@@ -49,7 +53,8 @@ const Editor = ({ onCreate }) => {
         size = "larger" // 버튼 크기
         onClick = {handleSubmit} // 버튼 클릭시 함수 호출
       />
-    </div>
+      <button onClick={handleClick}></button>
+    </EditorStyle>
   );
 };
 

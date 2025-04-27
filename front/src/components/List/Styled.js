@@ -1,3 +1,7 @@
+import styled from 'styled-components'
+
+const ListStyle = styled.div`
+
 .List {
     display: flex;
     flex-direction: column;
@@ -21,3 +25,6 @@
     flex-direction: column;
     gap: 20px;
 }
+`
+
+export default ListStyle;

@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import dayjs from "dayjs";
-import "./Header.css";
+import HeaderStyle from './Styled'
 
 // Typography 컴포넌트에서 타이틀과 텍스트만 추출
 const { Title, Text } = Typography;
@@ -30,6 +30,7 @@ const Header = ({onSearchByDate, onResetTodos}) => {
 
   // UI
   return (
+    <HeaderStyle>
     <div className="headerContainer">
       <h3>오늘은 📆</h3>
       <Title level={2} className="headerTitle">
@@ -63,6 +64,7 @@ const Header = ({onSearchByDate, onResetTodos}) => {
         customInput={<div />}
       />
     </div>
+    </HeaderStyle>
   );
 };
 

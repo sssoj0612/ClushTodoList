@@ -1,3 +1,7 @@
+import styled from 'styled-components'
+
+const EditorStyle = styled.div`
+
 .inputInsert {
     flex: 1;
     padding: 0.375rem 0.75rem;
@@ -21,7 +25,8 @@
     width: 70px;
     height: 40px;
     border: none;
-    background-color: #A7D7C9;
+    background-color: ${(props) => props.color ? '#000' : '#A7D7C9' };
+    /* background-color: #A7D7C9; */
     border-radius: 0.4rem;
     color: white;
     font-size: larger;
@@ -37,3 +42,6 @@
 .btnInsert:active {
     background-color: #8bb3a7 !important;
 }
+`
+
+export default EditorStyle;

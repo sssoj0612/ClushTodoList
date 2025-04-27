@@ -1,8 +1,8 @@
 import { List as AntList, Input, Typography, Tag } from "antd";
-import TodoItem from "./TodoItem";
+import TodoItem from "../TodoItem";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./List.css";
+import ListStyle from './Styled'
 
 // 리스트 컴포넌트 정의
 const List = ({ todos, onDelete, onToggle, onSearch, onUpdate }) => {
@@ -31,6 +31,7 @@ const List = ({ todos, onDelete, onToggle, onSearch, onUpdate }) => {
 
   // UI
   return (
+    <ListStyle>
     <div className="List">
       <h3> 진행 상황 🌱
         <Tag color="green" style={{ marginLeft: 8 }}>✔️ 완료 {statistics.complete}</Tag>
@@ -59,6 +60,7 @@ const List = ({ todos, onDelete, onToggle, onSearch, onUpdate }) => {
         )}
       />
     </div>
+    </ListStyle>
   );
 };
 

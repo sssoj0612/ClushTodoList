@@ -44,16 +44,23 @@ back/
 front/
 ├── src/
 │   ├── components/
-│   │   ├── Header.jsx                  # 상단 날짜 헤더
-│   │   ├── Editor.jsx                  # Todo 입력창
-│   │   ├── List.jsx                    # Todo 목록 전체
-│   │   ├── TodoItem.jsx                # Todo 개별 항목
-│   │   └── (CSS 파일 각 컨트롤 단위)
-│   ├── App.jsx                         # 메인
-│   ├── App.css                         # 메인 CSS
-│   └── main.jsx                        # 시작 점
-├── package.json                        # 의존성 & 스크립트
-└── vite.config.js                      # Vite 설정
+│   │   ├── Header/                     
+│   │   │   ├── Header.jsx              # 날짜 헤더 컴포넌트
+│   │   │   └── Styled.jsx              # Header용 styled-components 모듈
+│   │   ├── Editor/                     
+│   │   │   ├── Editor.jsx              # Todo 입력창 컴포넌트
+│   │   │   └── Styled.jsx              # Editor용 styled-components 모듈
+│   │   ├── List/                       
+│   │   │   ├── List.jsx                # Todo 목록 전체 컴포넌트
+│   │   │   └── Styled.jsx              # List용 styled-components 모듈
+│   │   └── TodoItem/                   
+│   │       ├── TodoItem.jsx            # Todo 개별 항목 컴포넌트
+│   │       └── Styled.jsx              # TodoItem용 styled-components 모듈
+│   ├── App.jsx                         # 메인 화면 구성 (컴포넌트 조합)
+│   └── main.jsx                        # 시작점 (렌더링 엔트리 포인트)
+├── package.json                        # 의존성 및 실행 스크립트
+└── vite.config.js                      # Vite 번들링 설정
+
 ```
 
 ---

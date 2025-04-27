@@ -1,3 +1,7 @@
+import styled from 'styled-components'
+
+const TodoItemStyle=styled.div`
+
 .todoItemWrapper {
     width: 100%;
     padding: 12px 0;
@@ -40,3 +44,6 @@
     margin-left: 20px;
     margin-top: 5px;
 }
+`
+
+export default TodoItemStyle;
