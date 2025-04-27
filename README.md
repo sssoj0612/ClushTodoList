@@ -10,7 +10,7 @@ Spring Boot + React 기반의 투두리스트(할 일 관리) 웹입니다.
 
 ---
 
-## ✅ 백엔드 (Java 17 + Spring Boot 3.0.3 로컬 서버)
+## ✅ 백엔드 (Java 17 + Spring Boot 3.0.3 + Maven)
 ```
 back/
 ├── src/
@@ -65,7 +65,7 @@ front/
 
 ---
 
-## ✅ 데이터베이스 (MySQL 8.0 로컬)
+## ✅ 데이터베이스 (MySQL 8.0)
 ```
 ┌────────────────────────────────────────┐
 │               TODOLIST                 │
@@ -94,7 +94,7 @@ cd clushTodoList
 
 ## 💾 DB
 - 설명: 로컬 개발용 MySQL DB 초기 세팅 방법입니다.
-- 기초 데이터 파일 위치: `back/db/todo_todolist.sql`
+- DB 초기화 SQL 파일 위치: `back/db/todo_todolist.sql`
 - 사용법:
   1. MySQL Workbench 8.0 실행
   2. Server → Data Import
@@ -130,6 +130,7 @@ npm run dev
 ### ✔️ 프론트
 - **Vite** : 고속 시작 & 바로 변경 확인 가능
 - **Axios** : REST API 과의 HTTP 통신을 간편하게 처리
+- **styled-components** : 컴포넌트 안에서 스타일(CSS)을 쉽게 작성하고 관리
 - **react-datepicker** : 캘린더 사용
 - **dayjs** : 날짜 형식(같은 YYYY-MM-DD) 변환을 위한 라이브러리
 
@@ -140,6 +141,14 @@ npm run dev
 
 
 - Swagger 연동 클릭 : [http://localhost:11000/swagger-ui/index.html](http://localhost:11000/swagger-ui/index.html)
+
+- 주요 엔드포인트:
+  - `/api/todo/list` : 전체 할 일 조회
+  - `/api/todo/byDate` : 선택한 날짜 할 일 조회
+  - `/api/todo/statistics` : 할 일 통계
+  - `/api/todo/insert` : 할 일 등록
+  - `/api/todo/update` : 할 일 수정
+  - `/api/todo/delete` : 할 일 삭제
 
 
 ---
@@ -175,8 +184,7 @@ mvn test
 
 ## 6. 기본 기능 외 추가 기능
 - 투두리스트 검색 기능 추가
-- 선택한 날짜에 작성한 투두리스트만 조회하는 기능 추가
-- 완료 / 미완료 통계 조회 기능 추가
+- 선택한 날짜 별 투두 조회 기능 추가
+- 완료 / 미완료 통계 기능 추가
 
 ---
-

@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect } from "react";
-import { Input, Button, Space } from "antd";
+import { useRef, useState } from "react";
+import { Input, Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import EditorStyle from './Styled';
 
@@ -53,7 +53,7 @@ const Editor = ({ onCreate }) => {
         size = "larger" // 버튼 크기
         onClick = {handleSubmit} // 버튼 클릭시 함수 호출
       />
-      <button onClick={handleClick}></button>
+      {/* <button onClick={handleClick}></button> */}
     </EditorStyle>
   );
 };

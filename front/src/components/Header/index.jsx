@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 import HeaderStyle from './Styled'
 
 // Typography 컴포넌트에서 타이틀과 텍스트만 추출
-const { Title, Text } = Typography;
+const {Title} = Typography;
 
 // Header 컴포넌트 정의 (날짜 선택 및 전체 투두 보기 기능)
 const Header = ({onSearchByDate, onResetTodos}) => {
